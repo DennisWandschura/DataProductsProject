@@ -5,7 +5,7 @@ account: denniswandschura
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 15068992
-bundleId: 10608597
+bundleId: 10608689
 url: https://denniswandschura.shinyapps.io/PredictingSepaLength/
 version: 1
 asMultiple: FALSE
