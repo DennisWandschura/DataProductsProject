@@ -1,0 +1,53 @@
+---
+title: "Predicting Sepal Length"
+author: "Dennis Wandschura"
+date: "2025-07-13"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+library(ggplot2)
+library(ggiraphExtra)
+knitr::opts_chunk$set(echo = FALSE)
+ mydata <- iris
+```
+
+## Model 1
+
+- Uses petal length as predictor
+
+```{r, echo=TRUE}
+    model1 <- lm(Sepal.Length ~ Petal.Length, mydata)
+```
+
+## Model 1 plot
+
+```{r}
+     ggPredict(model1)
+```
+
+## Model 2
+
+- Uses petal length and width as predictor
+
+```{r, echo=TRUE}
+    model2 <- lm(Sepal.Length ~ Petal.Length + Petal.Width, mydata)
+```
+
+## Model 2 plot
+
+```{r}
+     ggPredict(model2)
+```
+
+## Comparison of the two models
+
+```{r}
+anova(model1, model2)
+```
+
+Adding petal length improves the accuracy of the model.
+
+- Lower RSS
+- p-value < 0.05
+
