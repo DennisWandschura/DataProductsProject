@@ -12,42 +12,36 @@ knitr::opts_chunk$set(echo = FALSE)
  mydata <- iris
 ```
 
-## Model 1
+## App Features
 
-- Uses petal length as predictor
+With the app you can predict sepal length with two different models
 
 ```{r, echo=TRUE}
     model1 <- lm(Sepal.Length ~ Petal.Length, mydata)
-```
-
-## Model 1 plot
-
-```{r}
-     ggPredict(model1)
-```
-
-## Model 2
-
-- Uses petal length and width as predictor
-
-```{r, echo=TRUE}
     model2 <- lm(Sepal.Length ~ Petal.Length + Petal.Width, mydata)
 ```
 
-## Model 2 plot
+## How to use
 
+Run the app and use the sliders!
+https://denniswandschura.shinyapps.io/PredictingSepaLength/
+
+Source-code
+https://github.com/DennisWandschura/DataProductsProject
+
+
+## Used data
+
+The iris dataset is being used as data
 ```{r}
-     ggPredict(model2)
+     head(mydata)
 ```
 
-## Comparison of the two models
+## Plot of used data
+
+- Uses petal length and width as predictor
 
 ```{r}
-anova(model1, model2)
+    ggplot(mydata, aes(y = Sepal.Length, x = Petal.Length, color = Species)) + 
+            geom_point()
 ```
-
-Adding petal length improves the accuracy of the model.
-
-- Lower RSS
-- p-value < 0.05
-
